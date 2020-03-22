@@ -18,7 +18,6 @@ class CategoryDataGrid extends DataGrid
             ->select('cat.id as category_id', 'ct.name as category_name', 'cat.position', 'cat.status', 'ct.locale',
             DB::raw('COUNT(DISTINCT ' . DB::getTablePrefix() . 'pc.product_id) as prd_count'),
             DB::raw('COUNT(DISTINCT ' . DB::getTablePrefix() . 'sr.service_id) as srv_count'))
-            //todo count services also
             ->leftJoin('category_translations as ct', function($leftJoin) {
                 $leftJoin->on('cat.id', '=', 'ct.category_id')
                          ->where('ct.locale', app()->getLocale());
@@ -94,8 +93,6 @@ class CategoryDataGrid extends DataGrid
             'searchable' => false,
             'filterable' => false,
         ]);
-
-        //todo add services count column
     }
 
     public function prepareActions()
