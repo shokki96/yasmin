@@ -11,18 +11,21 @@ class CategoryDataGrid extends DataGrid
 
     protected $sortOrder = 'desc';
 
+
     public function prepareQueryBuilder()
     {
         $queryBuilder = DB::table('categories as cat')
-            ->select('cat.id as category_id', 'ct.name', 'cat.position', 'cat.status', 'ct.locale',
-            DB::raw('COUNT(DISTINCT ' . DB::getTablePrefix() . 'pc.product_id) as count'))
+            ->select('cat.id as category_id', 'ct.name as category_name', 'cat.position', 'cat.status', 'ct.locale',
+            DB::raw('COUNT(DISTINCT ' . DB::getTablePrefix() . 'pc.product_id) as prd_count'),
+            DB::raw('COUNT(DISTINCT ' . DB::getTablePrefix() . 'sr.service_id) as srv_count'))
+            //todo count services also
             ->leftJoin('category_translations as ct', function($leftJoin) {
                 $leftJoin->on('cat.id', '=', 'ct.category_id')
                          ->where('ct.locale', app()->getLocale());
             })
             ->leftJoin('product_categories as pc', 'cat.id', '=', 'pc.category_id')
+            ->leftJoin('service_categories as sr', 'cat.id', '=', 'sr.category_id')
             ->groupBy('cat.id');
-
 
         $this->addFilter('category_id', 'cat.id');
 
@@ -41,7 +44,7 @@ class CategoryDataGrid extends DataGrid
         ]);
 
         $this->addColumn([
-            'index'      => 'name',
+            'index'      => 'category_name',
             'label'      => trans('admin::app.datagrid.name'),
             'type'       => 'string',
             'searchable' => true,
@@ -75,13 +78,24 @@ class CategoryDataGrid extends DataGrid
         ]);
 
         $this->addColumn([
-            'index'      => 'count',
+            'index'      => 'prd_count',
             'label'      => trans('admin::app.datagrid.no-of-products'),
             'type'       => 'number',
             'sortable'   => true,
             'searchable' => false,
             'filterable' => false,
         ]);
+
+        $this->addColumn([
+            'index'      => 'srv_count',
+            'label'      => trans('admin::app.datagrid.no-of-services'),
+            'type'       => 'number',
+            'sortable'   => true,
+            'searchable' => false,
+            'filterable' => false,
+        ]);
+
+        //todo add services count column
     }
 
     public function prepareActions()

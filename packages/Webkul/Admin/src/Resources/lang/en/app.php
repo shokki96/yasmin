@@ -54,6 +54,7 @@ return [
         'catalog' => 'Catalog',
         'products' => 'Products',
         'categories' => 'Categories',
+        'services' => 'Services', ////////////////////////////////////////////////translate add
         'attributes' => 'Attributes',
         'attribute-families' => 'Attribute Families',
         'customers' => 'Customers',
@@ -152,6 +153,7 @@ return [
         'name' => 'Name',
         'direction' => 'Direction',
         'fullname' => 'Full Name',
+        'company_name' => 'Company Name',
         'type' => 'Type',
         'required' => 'Required',
         'unique' => 'Unique',
@@ -196,6 +198,7 @@ return [
         'role' => 'Role',
         'sub-total' => 'Sub Total',
         'no-of-products' => 'Number of Products',
+        'no-of-services' => 'Number of Services',
         'attribute-family' => 'Attribute Family',
         'starts-from' => 'Starts From',
         'ends-till' => 'Ends Till',
@@ -521,7 +524,6 @@ return [
             'new-option' => 'New Option',
             'is-default' => 'Is Default'
         ],
-
         'attributes' => [
             'title' => 'Attributes',
             'add-title' => 'Add Attribute',
@@ -619,6 +621,10 @@ return [
             'image' => 'Image',
             'filterable-attributes' => 'Filterable Attributes',
             'attributes' => 'Attributes',
+        ],
+        'services' => [
+            'title' => "Services",
+            'add-title' => 'Add Service',
         ]
     ],
 
