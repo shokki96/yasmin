@@ -1,5 +1,5 @@
 {
-    "name": "merdan/service",
+    "name": "merdan/bagisto-services",
     "description": "Service adverts plugin for bagisto",
     "license": "MIT",
     "authors": [
@@ -9,6 +9,8 @@
         }
     ],
     "require": {
+        "bagisto/laravel-admin": "dev-master",
+        "bagisto/laravel-ui": "dev-master"
     },
     "autoload": {
         "psr-4": {

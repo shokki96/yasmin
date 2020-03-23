@@ -13,7 +13,6 @@ return [
     'attribute' => 'Attribute',
     'actions' => 'Actions',
     'id' => 'ID',
-    'action' => 'action',
     'yes' => 'Yes',
     'no' => 'No',
     'true' => 'True',
@@ -54,7 +53,6 @@ return [
         'catalog' => 'Catalog',
         'products' => 'Products',
         'categories' => 'Categories',
-        'services' => 'Services', ////////////////////////////////////////////////translate add
         'attributes' => 'Attributes',
         'attribute-families' => 'Attribute Families',
         'customers' => 'Customers',
@@ -153,7 +151,6 @@ return [
         'name' => 'Name',
         'direction' => 'Direction',
         'fullname' => 'Full Name',
-        'company_name' => 'Company Name',
         'type' => 'Type',
         'required' => 'Required',
         'unique' => 'Unique',
@@ -198,7 +195,6 @@ return [
         'role' => 'Role',
         'sub-total' => 'Sub Total',
         'no-of-products' => 'Number of Products',
-        'no-of-services' => 'Number of Services',
         'attribute-family' => 'Attribute Family',
         'starts-from' => 'Starts From',
         'ends-till' => 'Ends Till',
@@ -365,7 +361,6 @@ return [
             'tax' => 'Tax',
             'tax-percent' => 'Tax Percent',
             'tax-amount' => 'Tax Amount',
-            'discount-amount' => 'Discount Amount',
             'discount-amount' => 'Discount Amount',
             'grand-total' => 'Grand Total',
             'total-paid' => 'Total Paid',
@@ -622,10 +617,6 @@ return [
             'filterable-attributes' => 'Filterable Attributes',
             'attributes' => 'Attributes',
         ],
-        'services' => [
-            'title' => "Services",
-            'add-title' => 'Add Service',
-        ]
     ],
 
     'configuration' => [
@@ -672,7 +663,6 @@ return [
                 'edit-button-title' => 'Edit Rate'
             ],
             'zip_code' => 'Zip Code',
-            'is_zip' => 'Enable Zip Range',
         ],
 
         'sales' => [
@@ -691,7 +681,6 @@ return [
             'title' => 'Locales',
             'add-title' => 'Add Locale',
             'edit-title' => 'Edit Locale',
-            'add-title' => 'Add Locale',
             'save-btn-title' => 'Save Locale',
             'general' => 'General',
             'code' => 'Code',
@@ -864,7 +853,6 @@ return [
                 'edit-button-title' => 'Edit Rate'
             ],
             'zip_code' => 'Zip Code',
-            'is_zip' => 'Enable Zip Range',
             'create-success' => 'Tax Rate Created Successfully',
             'create-error' => 'Cannot Create Tax Rate',
             'update-success' => 'Tax Rate Updated Successfully',
@@ -883,7 +871,6 @@ return [
             'edit-title' => 'Edit Group',
             'save-btn-title' => 'Save Group',
             'title' => 'Groups',
-            'save-btn-title' => 'Save Group',
             'code' => 'Code',
             'name' => 'Name',
             'is_user_defined' => 'User Defined',
@@ -946,7 +933,6 @@ return [
             'other' => 'Other',
             'male' => 'Male',
             'female' => 'Female',
-            'phone' => 'Phone',
             'group-default' => 'Cannot delete the default group.',
             'edit-help-title' => 'Edit Customer',
             'delete-help-title' => 'Delete Customer',

@@ -1,7 +1,7 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-    {{ __('admin::app.catalog.services.title') }}
+    {{ __('service::app.catalog.services.title') }}
 @stop
 
 @section('content')
@@ -9,7 +9,7 @@
         <?php $locale = request()->get('locale') ?: null; ?>
         <div class="page-header">
             <div class="page-title">
-                <h1>{{ __('admin::app.catalog.services.title') }}</h1>
+                <h1>{{ __('service::app.catalog.services.title') }}</h1>
 
                 <div class="control-group">
                     <select class="control" id="locale-switcher" name="locale" onchange="reloadPage('locale', this.value)" >
@@ -38,7 +38,7 @@
                 </div>
 
                 <a href="{{ route('admin.catalog.products.create') }}" class="btn btn-lg btn-primary">
-                    {{ __('admin::app.catalog.services.add-title') }}
+                    {{ __('service::app.catalog.services.add-title') }}
                 </a>
             </div>
         </div>

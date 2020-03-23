@@ -72,7 +72,7 @@ class ServiceDataGrid extends DataGrid
 
         $this->addColumn([
             'index'      => 'company_name',
-            'label'      => trans('admin::app.datagrid.company_name'),
+            'label'      => trans('service::app.datagrid.company_name'),
             'type'       => 'string',
             'searchable' => true,
             'sortable'   => true,

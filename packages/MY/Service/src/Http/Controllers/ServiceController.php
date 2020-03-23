@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace MY\Service\Http\Controllers;
 
-use App\Advert;
+use App\Service;
 use Illuminate\Http\Request;
 
-class AdvertController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class AdvertController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Advert  $advert
+     * @param  \App\Service  $advert
      * @return \Illuminate\Http\Response
      */
-    public function show(Advert $advert)
+    public function show(Service $advert)
     {
         //
     }
@@ -52,10 +52,10 @@ class AdvertController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Advert  $advert
+     * @param  \App\Service  $advert
      * @return \Illuminate\Http\Response
      */
-    public function edit(Advert $advert)
+    public function edit(Service $advert)
     {
         //
     }
@@ -64,10 +64,10 @@ class AdvertController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Advert  $advert
+     * @param  \App\Service  $advert
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Advert $advert)
+    public function update(Request $request, Service $advert)
     {
         //
     }
@@ -75,10 +75,10 @@ class AdvertController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Advert  $advert
+     * @param  \App\Service  $advert
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Advert $advert)
+    public function destroy(Service $advert)
     {
         //
     }

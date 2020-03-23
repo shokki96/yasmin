@@ -55,23 +55,17 @@ return [
         'route'      => 'admin.catalog.categories.index',
         'sort'       => 1,
         'icon-class' => '',
-    ], [
-        'key'        => 'catalog.services',
-        'name'       => 'admin::app.layouts.services',
-        'route'      => 'admin.catalog.services.index',
-        'sort'       => 3,
-        'icon-class' => '',
     ],[
         'key'        => 'catalog.attributes',
         'name'       => 'admin::app.layouts.attributes',
         'route'      => 'admin.catalog.attributes.index',
-        'sort'       => 4,
+        'sort'       => 3,
         'icon-class' => '',
     ],[
         'key'        => 'catalog.families',
         'name'       => 'admin::app.layouts.attribute-families',
         'route'      => 'admin.catalog.families.index',
-        'sort'       => 5,
+        'sort'       => 4,
         'icon-class' => '',
     ], [
         'key'        => 'customers',
