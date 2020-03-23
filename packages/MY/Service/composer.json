@@ -1,0 +1,27 @@
+{
+    "name": "merdan/service",
+    "description": "Service adverts plugin for bagisto",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "merdan",
+            "email": "merdan.m@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "MY\\Service\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MY\\Service\\SrvServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}
