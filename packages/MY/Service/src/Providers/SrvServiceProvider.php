@@ -5,6 +5,8 @@ namespace MY\Service\Providers;
 
 
 use Illuminate\Support\ServiceProvider;
+use MY\Service\Models\ServiceProxy;
+use MY\Service\Observers\ServiceObserver;
 
 class SrvServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,8 @@ class SrvServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'service');
 
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'service');
+
+        ServiceProxy::observe(ServiceObserver::class);
     }
 
     /**

@@ -16,6 +16,11 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
 
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->boolean('status')->default(0);
+            $table->integer('position')->default(0);
             $table->timestamps();
         });
 
@@ -34,29 +39,20 @@ class CreateServicesTable extends Migration
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
         });
 
-        Schema::create('service_flat', function (Blueprint $table) {
+        Schema::create('service_translations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
+            $table->string('title')->nullable();
+            $table->string('organization')->nullable();
             $table->text('description')->nullable();
-            $table->string('url_key')->nullable();
-
-            $table->boolean('status')->nullable();
-            $table->string('thumbnail')->nullable();
-
-            $table->string('company_name')->nullable();
-            $table->string('company_phone')->nullable();
-            $table->string('company_email')->nullable();
-            $table->string('company_address')->nullable();
-
-            $table->date('created_at')->nullable();
-
-            $table->string('locale')->nullable();
-
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('linkedin')->nullable();
-
+            $table->text('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('locale');
             $table->integer('service_id')->unsigned();
+            $table->unique(['service_id', 'slug', 'locale']);
+            $table->integer('locale_id')->nullable()->unsigned();
+            $table->foreign('locale_id')->references('id')->on('locales')->onDelete('cascade');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
         });
     }
@@ -70,7 +66,7 @@ class CreateServicesTable extends Migration
     {
         Schema::dropIfExists('service_categories');
 
-        Schema::dropIfExists('service_flat');
+        Schema::dropIfExists('service_translations');
 
         Schema::dropIfExists('service_images');
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Webkul\Admin\DataGrids;
+namespace My\Service\DataGrids;
 
 
 use Illuminate\Support\Facades\DB;
@@ -27,25 +27,22 @@ class ServiceDataGrid extends DataGrid
 
     public function prepareQueryBuilder()
     {
-        $queryBuilder = DB::table('service_flat')
-            ->leftJoin('services', 'service_flat.service_id', '=', 'services.id')
+        $queryBuilder = DB::table('services as srv')
+            ->leftJoin('service_translations as st', function($leftJoin) {
+                $leftJoin->on('srv.id', '=', 'st.service_id')
+                    ->where('st.locale', app()->getLocale());
+            })
             ->select(
-                'service_flat.service_id as service_id',
-                'service_flat.name',
-                'service_flat.company_name',
-                'service_flat.status'
-            );
+                'st.service_id as service_id',
+                'st.title',
+                'st.organization',
+                'srv.status',
+                'srv.position')
+            ->groupBy('srv.id');
 
-        if ($this->locale !== 'all') {
-            $queryBuilder->where('locale', $this->locale);
-        } else {
-            $queryBuilder->whereNotNull('service_flat.name');
-        }
-
-        $this->addFilter('service_id', 'service_flat.service_id');
-        $this->addFilter('service_name', 'service_flat.name');
-        $this->addFilter('company_name', 'service_flat.company_name');
-        $this->addFilter('status', 'service_flat.status');
+        $this->addFilter('service_id', 'st.service_id');
+        $this->addFilter('title', 'st.title');
+        $this->addFilter('organization', 'st.organization');
 
         $this->setQueryBuilder($queryBuilder);
     }
@@ -62,8 +59,8 @@ class ServiceDataGrid extends DataGrid
         ]);
 
         $this->addColumn([
-            'index'      => 'name',
-            'label'      => trans('admin::app.datagrid.name'),
+            'index'      => 'title',
+            'label'      => trans('admin::app.datagrid.title'),
             'type'       => 'string',
             'searchable' => true,
             'sortable'   => true,
@@ -71,8 +68,8 @@ class ServiceDataGrid extends DataGrid
         ]);
 
         $this->addColumn([
-            'index'      => 'company_name',
-            'label'      => trans('service::app.datagrid.company_name'),
+            'index'      => 'organization',
+            'label'      => trans('service::app.datagrid.organization'),
             'type'       => 'string',
             'searchable' => true,
             'sortable'   => true,
@@ -96,6 +93,14 @@ class ServiceDataGrid extends DataGrid
             },
         ]);
 
+        $this->addColumn([
+            'index'      => 'position',
+            'label'      => trans('service::app.datagrid.position'),
+            'type'       => 'number',
+            'searchable' => false,
+            'sortable'   => true,
+            'filterable' => true,
+        ]);
 
     }
 

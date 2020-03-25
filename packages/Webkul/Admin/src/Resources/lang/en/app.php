@@ -195,6 +195,7 @@ return [
         'role' => 'Role',
         'sub-total' => 'Sub Total',
         'no-of-products' => 'Number of Products',
+        'no-of-services' => 'Number of Services',
         'attribute-family' => 'Attribute Family',
         'starts-from' => 'Starts From',
         'ends-till' => 'Ends Till',

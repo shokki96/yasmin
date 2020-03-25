@@ -10,23 +10,6 @@
         <div class="page-header">
             <div class="page-title">
                 <h1>{{ __('service::app.catalog.services.title') }}</h1>
-
-                <div class="control-group">
-                    <select class="control" id="locale-switcher" name="locale" onchange="reloadPage('locale', this.value)" >
-                        <option value="all" {{ ! isset($locale) ? 'selected' : '' }}>
-                            {{ __('admin::app.admin.system.all-locales') }}
-                        </option>
-
-                        @foreach (core()->getAllLocales() as $localeModel)
-
-                            <option
-                                    value="{{ $localeModel->code }}" {{ (isset($locale) && ($localeModel->code) == $locale) ? 'selected' : '' }}>
-                                {{ $localeModel->name }}
-                            </option>
-
-                        @endforeach
-                    </select>
-                </div>
             </div>
 
             <div class="page-action">
@@ -37,7 +20,7 @@
                     </span>
                 </div>
 
-                <a href="{{ route('admin.catalog.products.create') }}" class="btn btn-lg btn-primary">
+                <a href="{{ route('admin.catalog.services.create') }}" class="btn btn-lg btn-primary">
                     {{ __('service::app.catalog.services.add-title') }}
                 </a>
             </div>
@@ -46,7 +29,7 @@
         {!! view_render_event('bagisto.admin.catalog.services.list.before') !!}
 
         <div class="page-content">
-            @inject('services', 'Webkul\Admin\DataGrids\ServiceDataGrid')
+            @inject('services', 'MY\Service\DataGrids\ServiceDataGrid')
             {!! $services->render() !!}
         </div>
 

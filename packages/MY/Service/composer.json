@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MY\\Service\\SrvServiceProvider"
+                "MY\\Service\\Providers\\SrvServiceProvider"
             ],
             "aliases": {}
         }
