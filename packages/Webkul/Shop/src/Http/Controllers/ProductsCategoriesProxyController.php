@@ -24,7 +24,7 @@ class ProductsCategoriesProxyController extends Controller
      */
     protected $productRepository;
 
-    protected $serviceRepository;
+//    protected $serviceRepository;
 
     /**
      * Create a new controller instance.
@@ -36,15 +36,15 @@ class ProductsCategoriesProxyController extends Controller
      */
     public function __construct(
         CategoryRepository $categoryRepository,
-        ProductRepository $productRepository,
-        ServiceRepository $serviceRepository
+        ProductRepository $productRepository
+//        ServiceRepository $serviceRepository
     )
     {
         $this->categoryRepository = $categoryRepository;
 
         $this->productRepository = $productRepository;
 
-        $this->serviceRepository = $serviceRepository;
+//        $this->serviceRepository = $serviceRepository;
 
         parent::__construct();
     }
