@@ -4,6 +4,7 @@
 namespace Webkul\Shop\Http\Controllers;
 
 use Illuminate\Http\Request;
+use MY\Service\Repositories\ServiceRepository;
 use Webkul\Category\Repositories\CategoryRepository;
 use Webkul\Product\Repositories\ProductRepository;
 
@@ -23,6 +24,8 @@ class ProductsCategoriesProxyController extends Controller
      */
     protected $productRepository;
 
+    protected $serviceRepository;
+
     /**
      * Create a new controller instance.
      *
@@ -33,12 +36,15 @@ class ProductsCategoriesProxyController extends Controller
      */
     public function __construct(
         CategoryRepository $categoryRepository,
-        ProductRepository $productRepository
+        ProductRepository $productRepository,
+        ServiceRepository $serviceRepository
     )
     {
         $this->categoryRepository = $categoryRepository;
 
         $this->productRepository = $productRepository;
+
+        $this->serviceRepository = $serviceRepository;
 
         parent::__construct();
     }
@@ -65,6 +71,11 @@ class ProductsCategoriesProxyController extends Controller
                 $customer = auth()->guard('customer')->user();
 
                 return view($this->_config['product_view'], compact('product', 'customer'));
+            }
+
+            if($service = $this->serviceRepository->findByPath($slugOrPath)){
+
+                return view($this->_config['service_view'], compact('service'));
             }
 
         }

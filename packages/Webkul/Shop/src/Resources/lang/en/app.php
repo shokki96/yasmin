@@ -22,7 +22,7 @@ return [
 
     'home' => [
         'page-title' => config('app.name') . ' - Home',
-        'featured-products' => 'Featured Products',
+        'featured-products' => 'Featured Products and Services',
         'new-products' => 'New Products',
         'verify-email' => 'Verify your email account',
         'resend-verify-email' => 'Resend Verification Email'

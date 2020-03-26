@@ -300,7 +300,8 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
     Route::fallback(\Webkul\Shop\Http\Controllers\ProductsCategoriesProxyController::class . '@index')
         ->defaults('_config', [
             'product_view' => 'shop::products.view',
-            'category_view' => 'shop::products.index'
+            'category_view' => 'shop::products.index',
+            'service_view' => 'shop::services.view'
         ])
         ->name('shop.productOrCategory.index');
 });

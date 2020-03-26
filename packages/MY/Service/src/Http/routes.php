@@ -24,7 +24,7 @@ Route::group(['middleware' => ['web']], function () {
                 ])->name('admin.catalog.services.edit');
 
                 Route::put('/services/edit/{id}', 'MY\Service\Http\Controllers\ServiceController@update')->defaults('_config', [
-                    'redirect' => 'admin.catalog.families.index'
+                    'redirect' => 'admin.catalog.services.index'
                 ])->name('admin.catalog.services.update');
 
                 Route::post('/services/delete/{id}', 'MY\Service\Http\Controllers\ServiceController@destroy')->name('admin.catalog.services.delete');
@@ -34,7 +34,10 @@ Route::group(['middleware' => ['web']], function () {
                     'redirect' => 'admin.catalog.services.index'
                 ])->name('admin.catalog.services.massupdate');
 
-                Route::post('/services/massdelete', 'MY\Service\Http\Controllers\ServiceController@massDestroy')->name('admin.catalog.services.massdelete');
+                //service massdelete
+                Route::post('/services/massdelete', 'MY\Service\Http\Controllers\ServiceController@massDestroy')->defaults('_config', [
+                    'redirect' => 'admin.catalog.services.index'
+                ])->name('admin.catalog.services.massdelete');
             });
         });
     });

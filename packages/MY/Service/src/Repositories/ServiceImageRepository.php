@@ -31,6 +31,7 @@ class ServiceImageRepository extends Repository
         $previousImageIds = $service->images()->pluck('id');
 
         if (isset($data['images'])) {
+
             foreach ($data['images'] as $imageId => $image) {
                 $file = 'images.' . $imageId;
                 $dir = 'service/' . $service->id;

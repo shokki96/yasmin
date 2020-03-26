@@ -22,7 +22,7 @@ class Service extends TranslatableModel implements ServiceContract
 
     protected $fillable = ['status','position','facebook','linkedin','instagram'];
 
-    protected $with = ['tranlations'];
+    protected $with = ['translations'];
 
     /**
      * The categories that belong to the product.

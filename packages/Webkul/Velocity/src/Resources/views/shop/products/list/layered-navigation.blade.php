@@ -15,6 +15,7 @@
         $filterAttributes = $attributeRepository->getFilterAttributes();
     }
 
+    $attributes = $attributes ??  [];
     foreach ($filterAttributes as $attribute) {
         if ($attribute->code <> 'price') {
             if (! $attribute->options->isEmpty()) {

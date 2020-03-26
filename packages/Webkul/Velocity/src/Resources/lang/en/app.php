@@ -168,7 +168,8 @@ return [
 
     'menu-navbar' => [
         'text-more' => 'More',
-        'text-category' => 'Shop by Category',
+        'text-category' => 'Categories',
+
     ],
 
     'minicart' => [

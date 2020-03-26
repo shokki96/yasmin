@@ -21,4 +21,9 @@ class ServiceTranslation extends Model implements ServiceTranslationContract
         'meta_keywords',
         'locale_id',
     ];
+
+
+    public function parent(){
+        return $this->belongsTo(ServiceProxy::modelClass(),'service_id');
+    }
 }
