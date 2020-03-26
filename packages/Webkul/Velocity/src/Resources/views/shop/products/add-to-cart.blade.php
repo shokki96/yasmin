@@ -37,7 +37,7 @@
                         {{ __('shop::app.products.add-to-cart') }}
                     </span>
                 </button>
-            @elseif(isset($addToCartForm) && !$addToCartForm)
+            @elseif(isset($addToCartForm) && !$addToCartForm && $product->isSaleable())
                 <form
                     method="POST"
                     action="{{ route('cart.add', $product->product_id) }}">
@@ -60,7 +60,7 @@
                         </span>
                     </button>
                 </form>
-            @else
+            @elseif($product->isSaleable())
                 <add-to-cart
                     form="true"
                     csrf-token='{{ csrf_token() }}'
