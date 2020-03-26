@@ -73,10 +73,10 @@ class ProductsCategoriesProxyController extends Controller
                 return view($this->_config['product_view'], compact('product', 'customer'));
             }
 
-            if($service = $this->serviceRepository->findByPath($slugOrPath)){
-
-                return view($this->_config['service_view'], compact('service'));
-            }
+//            if($service = $this->serviceRepository->findByPath($slugOrPath)){
+//
+//                return view($this->_config['service_view'], compact('service'));
+//            }
 
         }
 
