@@ -24,7 +24,7 @@ class SrvServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'service');
 
-        ServiceProxy::observe(ServiceObserver::class);
+//        ServiceProxy::observe(ServiceObserver::class);
     }
 
     /**
